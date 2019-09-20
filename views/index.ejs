@@ -1,0 +1,46 @@
+<h1>Auth App</h1>
+
+<% if (user) { %>
+
+<h2>Welcome <%= user.username %></h2>
+<p>
+  You logged in at <%= session.loginTime %>. <br /><br />
+
+  Your account was created at <%= user.createdAt.toString() %>
+</p>
+
+<% } else { %>
+<!-- signup form -->
+<form class="signup-form" method="POST" action="/signup">
+  <h2>Sign Up</h2>
+  <fieldset>
+    <input type="text" name="username" placeholder="username" />
+  </fieldset>
+  <fieldset>
+    <input type="password" name="password" placeholder="password" />
+  </fieldset>
+  <fieldset>
+    <input type="password" name="password_confirm" placeholder="password" />
+  </fieldset>
+  <div>
+    <button type="submit">Sign Up</button>
+  </div>
+</form>
+
+<p>or...</p>
+
+<!-- login form -->
+<form class="login-form" method="POST" action="/login">
+  <h2>Login</h2>
+  <fieldset>
+    <input type="text" name="username" placeholder="username" />
+  </fieldset>
+  <fieldset>
+    <input type="password" name="password" placeholder="password" />
+  </fieldset>
+  <div>
+    <button type="submit">Login</button>
+  </div>
+</form>
+
+<% } %>
